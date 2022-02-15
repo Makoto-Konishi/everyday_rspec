@@ -42,3 +42,5 @@
 .ruby-version
 
 .DS_Store
+.idea/
+bin/
