@@ -4,5 +4,20 @@ FactoryBot.define do
     description { 'A test project.' }
     due_on { 1.week.from_now }
     association :owner
+
+    # 締切が昨日
+    trait :due_yesterday do
+      due_on { 1.day.ago }
+    end
+
+    # 締切が今日
+    trait :due_today do
+      due_on { Date.current.in_time_zone }
+    end
+
+    # 締切が明日
+    trait :due_tomorrow do
+      due_on { 1.day.from_now }
+    end
   end
 end
