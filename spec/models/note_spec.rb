@@ -2,19 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Note, type: :model do
   before do
-    @user = User.create(first_name: 'hoge', last_name: 'fuga', email: 'hogefuga@example.com', password: 'password')
-    @project = @user.projects.create(name: 'test project')
+    @user = FactoryBot.create(:user)
+    @project = FactoryBot.create(:project)
   end
 
   # ユーザー、プロジェクト、メッセージがあれば有効な状態であること
   it 'is valid with a user, project, and message' do
-    note = Note.new(message: 'This is a sample note', user: @user, project: @project)
+    note = FactoryBot.build(:note)
     expect(note).to be_valid
   end
 
   # メッセージがなければ無効な状態であること
   it 'is invalid without a message' do
-    note = Note.new(message: '', user: @user, project: @project)
+    note = FactoryBot.build(:note, message: '', user: @user, project: @project)
     note.valid?
     expect(note.errors[:message]).to include("can't be blank")
   end
@@ -22,9 +22,9 @@ RSpec.describe Note, type: :model do
   # 文字列に一致するメッセージを検索する
   describe 'search message for a term' do
     before do
-      @note1 = @project.notes.create(message: 'This is the first note.', user: @user)
-      @note2 = @project.notes.create(message: 'This is the second note.', user: @user)
-      @note3 = @project.notes.create(message: 'First, preheat the oven.', user: @user)
+      @note1 = FactoryBot.create(:note, message: 'This is the first note.', user: @user, project: @project)
+      @note2 = FactoryBot.create(:note, message: 'This is the second note.', user: @user, project: @project)
+      @note3 = FactoryBot.create(:note, message: 'First, preheat the oven.', user: @user, project: @project)
     end
 
     # 一致するデータが見つかるとき

@@ -4,6 +4,7 @@ FactoryBot.define do
     description { 'A test project.' }
     due_on { 1.week.from_now }
     association :owner
+    # owner { owner }
 
     # 締切が昨日
     trait :due_yesterday do
@@ -18,6 +19,11 @@ FactoryBot.define do
     # 締切が明日
     trait :due_tomorrow do
       due_on { 1.day.from_now }
+    end
+
+    # メモ付きのプロジェクト
+    trait :with_notes do
+      after(:create) { |project| create_list(:note, 5, project: project) }
     end
   end
 end
