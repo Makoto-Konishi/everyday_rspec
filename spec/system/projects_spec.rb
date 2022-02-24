@@ -28,7 +28,6 @@ RSpec.describe "Projects", type: :system do
 
   scenario 'guest adds a project' do
     visit projects_path
-    save_and_open_page # これを追加するとデバッグできる
     click_link 'New Project'
   end
 end
