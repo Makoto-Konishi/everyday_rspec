@@ -1,5 +1,4 @@
 class SessionsController < Devise::SessionsController
-  # TODO: Monkey patch for Turbo
   # https://github.com/heartcombo/devise/pull/5410
   def respond_to_on_destroy
     # We actually need to hardcode this as Rails default responder doesn't
