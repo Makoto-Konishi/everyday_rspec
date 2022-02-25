@@ -13,9 +13,11 @@ RSpec.describe "Projects", type: :system do
       fill_in 'Description', with: 'This is a test project.'
       click_button 'Create Project'
 
-      expect(page).to have_content 'Project was successfully created.'
-      expect(page).to have_content 'Test project'
-      expect(page).to have_content "Owner: #{user.name}"
+      aggregate_failures do # 1つ目のexpectが失敗しても継続してテストを行える。
+        expect(page).to have_content 'Project was successfully created.'
+        expect(page).to have_content 'Test project'
+        expect(page).to have_content "Owner: #{user.name}"
+      end
     }.to change(user.projects, :count).by(1)
   end
 end

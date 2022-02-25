@@ -1,5 +1,4 @@
 RSpec::Matchers.define :have_content_type do |expected|
-  # TODO: ブロック引数actualを無くして確認してみる
   match do |actual|
     content_types = {
       html: 'text/html',
