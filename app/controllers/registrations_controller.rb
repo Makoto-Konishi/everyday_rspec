@@ -1,5 +1,4 @@
 class RegistrationsController < Devise::RegistrationsController
-  # TODO: Monkey patch for Turbo
   # https://github.com/heartcombo/devise/pull/5410
   def destroy
     resource.destroy

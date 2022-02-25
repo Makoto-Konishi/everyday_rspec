@@ -72,14 +72,12 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  # TODO: waiting for release https://github.com/teamcapybara/capybara/pull/2520
   gem "capybara", github: 'teamcapybara/capybara'
   gem "selenium-webdriver"
   gem "webdrivers"
 
   gem 'launchy'
   gem 'shoulda-matchers'
-  # TODO: waiting for release https://github.com/vcr/vcr/pull/907
   gem 'vcr', github: 'vcr/vcr'
   gem 'webmock'
 end

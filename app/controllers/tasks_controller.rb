@@ -3,16 +3,13 @@ class TasksController < ApplicationController
   before_action :project_owner?
   before_action :set_task, only: %i[ show edit update destroy toggle ]
 
-  # TODO: This action is not used.
   # GET /tasks or /tasks.json
   def index
     @tasks = Task.all
   end
 
-  # TODO: This action is not used.
   # GET /tasks/1 or /tasks/1.json
-  def show
-  end
+  def show; end
 
   # GET /tasks/new
   def new
@@ -20,8 +17,7 @@ class TasksController < ApplicationController
   end
 
   # GET /tasks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tasks or /tasks.json
   def create

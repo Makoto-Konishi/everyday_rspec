@@ -8,10 +8,8 @@ class NotesController < ApplicationController
     @notes = @project.notes.search(params[:term])
   end
 
-  # TODO: This action is not used.
   # GET /notes/1 or /notes/1.json
-  def show
-  end
+  def show; end
 
   # GET /notes/new
   def new
@@ -19,8 +17,7 @@ class NotesController < ApplicationController
   end
 
   # GET /notes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /notes or /notes.json
   def create
