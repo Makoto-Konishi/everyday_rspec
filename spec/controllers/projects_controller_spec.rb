@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
   describe '#index' do
-    context 'as a authenticated user' do
+    context 'as an authenticated user' do
       before do
         @user = FactoryBot.create(:user)
       end
